@@ -1,3 +1,112 @@
+
+
+#include <iostream>
+#include <queue>
+#include <sstream>
+using namespace std;
+
+// Integer to String
+template <typename T>
+ std::string NumberToString ( T Number )
+ {
+     std::ostringstream ss;
+     ss << Number;
+     return ss.str();
+ }
+
+bool checkOneZeoForm(unsigned int n)
+{
+	std::string s = NumberToString (n);
+	for(unsigned int i = 0; i < s.length(); ++i)
+	{
+		if(s[i] != '0' && s[i] != '1') return false;
+	}
+	return true;
+}
+
+/*
+// Brute Force Method
+int main()
+{
+	unsigned int a =  999, b = 1, t;
+	
+	bool r = checkOneZeoForm(42);
+
+	while(1)
+	{
+		if(checkOneZeoForm(a*b)) break;
+		b++;
+	}
+	t = a * b;
+	return 0;
+}
+*/
+
+unsigned int nextNumber(unsigned int n)
+{
+	if(n % 10) return n * 10;
+	else n + 1;
+
+	
+}
+
+bool visited[10005];
+
+int main()
+{
+	memset(visited, false, sizeof visited);
+	unsigned int t = 0, m = 0;
+	queue<int> q;
+	q.push(1);
+	t = q.front();
+	visited[t] = true;
+	while(!q.empty())
+	{
+		m = q.front();
+		q.pop();
+		// Find the next element
+
+		
+		if(!visited[m])
+		{
+			visited[m] = true;
+			//q.push
+			q.pop();
+		}
+
+	}
+
+
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include <iostream>
 #include <queue>
 using namespace std;

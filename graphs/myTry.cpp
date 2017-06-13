@@ -1,5 +1,6 @@
 #include <iostream>
 #include <queue>
+#include <map>
 #include <sstream>
 using namespace std;
 
@@ -49,17 +50,18 @@ int main()
 
 #else
 
-bool visited[1000000000];
-
 int main()
 {
-	memset(visited, false, sizeof visited);
-	unsigned int t = 0, m = 0;
-	unsigned int a = 999; // 17; //
-	queue<int> q;
+	map<unsigned long long, bool> visited;
+	// bool visited[1000000000];
+	// memset(visited, false, sizeof visited);
+	unsigned long long t = 0, m = 0;
+	unsigned long long a =  999; // 17; //  
+	queue<unsigned long long> q;
 	q.push(1);
 	t = q.front();
 	visited[t] = false;
+	
 	while(!q.empty())
 	{
 		m = q.front();
@@ -76,9 +78,10 @@ int main()
 		{			
 			visited[m] = true;
 			q.push(m*10);
-			q.push(m*10 + 1);			
+			q.push(m*10 + 1);
+			visited[m*10] = false;
+			visited[m*10 + 1] = false;
 		}
-
 	}
 	return 0;
 }

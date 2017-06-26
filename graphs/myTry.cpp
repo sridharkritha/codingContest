@@ -114,7 +114,7 @@ int main()
 
 #endif
 
-#else
+#elif 0
 
 // src: https://github.com/sridharkritha/SPOJ/blob/master/ONEZERO.cpp
 

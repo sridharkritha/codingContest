@@ -131,6 +131,12 @@ void bfs(string src, string dst)
 	while(!q.empty())
 	{
 		p = q.front();
+
+		if(p.first == dst)
+		{
+			return;
+		}
+
 		q.pop();
 		v = neigbhourNodes(p.first);
 		for(int i = 0; i < v.size(); ++i)

@@ -119,22 +119,22 @@ vector<string> neigbhourNodes(string node)
 	return v;		 
 }
 
-void bfs(string src, string dst)
+int bfs(string src, string dst)
 {
 	vector<string> v;
-	map<string, bool> m;
+	map<string, unsigned int> m;
 	queue<pair<string,bool>> q;
 	pair<string,bool> p;
 
 	q.push(make_pair(src, true));
-
+	m[src] = 0;
 	while(!q.empty())
 	{
 		p = q.front();
 
 		if(p.first == dst)
 		{
-			return;
+			break;
 		}
 
 		q.pop();
@@ -144,19 +144,24 @@ void bfs(string src, string dst)
 			if(m.find(v[i]) == m.end()) 
 			{
 				// Not exist in map
-				m[v[i]] = false; // not visited
+				m[v[i]] = m[p.first] + 1; // not visited
 				q.push(make_pair(v[i], false));
 			}
 		}		
 	}
+	int t = m[dst];
+	return t;
 }
 
 int main()
 {
 	vector<string> v;
+	/*
 	v = neigbhourNodes("h1");
 	string src, dst;
 	bfs(src, dst);
+	*/
+	bfs("a1", "c1");
 	cout<<"sridhar";
 	return 0;
 }

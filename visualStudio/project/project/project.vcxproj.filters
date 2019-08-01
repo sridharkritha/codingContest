@@ -18,7 +18,7 @@
     <ClCompile Include="..\..\..\graphs\myTry.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\graphs\second.cpp">
+    <ClCompile Include="..\..\..\graphs\zero.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

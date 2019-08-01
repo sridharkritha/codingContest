@@ -75,7 +75,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\graphs\myTry.cpp" />
-    <ClCompile Include="..\..\..\graphs\second.cpp" />
+    <ClCompile Include="..\..\..\graphs\zero.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

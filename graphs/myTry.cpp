@@ -114,7 +114,7 @@ int main()
 
 #endif
 
-#else
+#elif 0
 
 // src: https://github.com/sridharkritha/SPOJ/blob/master/ONEZERO.cpp
 
@@ -179,5 +179,137 @@ int main() {
 	}
 	return 0;
 }
+
+#elif 0
+#include<stack>
+
+typedef long long int LLD;
+typedef unsigned long long int LLU;
+
+using namespace std;
+
+queue< pair<LLD, int> > q;
+pair<LLD, int> p;
+
+LLD bfs(int n){
+	bool visited[20000];
+	fill(visited, visited + n, false);
+	LLD res;
+	q.push(make_pair(1, 1));
+	
+	while(!q.empty()){
+		p = q.front();
+		q.pop();
+		visited[p.second] = true;
+		if((p.second % n) == 0){
+			res = p.first;
+			break;
+		}
+		else{
+			LLD tmp1 = p.first;
+			tmp1 <<= 1;
+			int modulo = (p.second * 10) % n;
+			if(!visited[modulo])
+				q.push(make_pair(tmp1, modulo));
+			LLD tmp2 = p.first;
+			tmp2 <<= 1;
+			tmp2 |= 1;
+			modulo = (p.second * 10 + 1) % n;
+			if(!visited[modulo])
+				q.push(make_pair(tmp2, modulo));
+		}
+	}
+	
+	while(!q.empty())
+		q.pop();
+	
+	return res;
+}
+
+void display(LLD n){
+	stack<int> s;
+	while(n){
+		s.push(n % 2);
+		n >>= 1;
+	}
+	while(!s.empty()){
+		cout << s.top();
+		s.pop();
+	}
+	cout << endl;
+}
+
+int main(){
+	int t, n;	
+    scanf("%d", &t);
+	while(t--){
+		scanf("%d", &n);
+		LLD result = bfs(n);
+		display(result);
+	}
+	return 0;
+}
+
+#elif 0
+
+inline int mod(int b, int m) {
+	if(b < m) return b;
+	return b % m;
+}
+
+int main()
+{
+	int a = 0, n =  7       ;
+	
+	for(int u = 0; u < 100; ++u)
+	{
+		a = mod((u * mod(10, n)), n);
+		cout<< a << ",";
+		if(u && u % n == 0)
+		cout<<endl;
+	}
+
+	return 0;
+}
+
+#elif 0
+
+// Calculate MOD of a very large number (ex: even can't be stored in 'long long int')
+
+// Hint: Divide and Conquer
+// 12345678910346916352 % 7
+// 1 mod 7 = 1
+// 12 mod 7 = (1 * 10 + 2) mod 7 = 5
+// 123 mod 7 = (5 * 10 + 3) mod 7 = 4
+// 1234 mod 7 = (4 * 10 + 4) mod 7 = 2 etc.,
+
+// src: http://www.geeksforgeeks.org/how-to-compute-mod-of-a-big-number/
+// http://pravnlives.blogspot.co.uk/#
+//    (A+B)%m = (A%m + B%m) %m
+//    (A-B)%m = (A%m - B%m) %m
+//    (A*B)%m = (A%m * B%m) %m
+
+
+// Function to comput num (mod m)
+int mod(string num, unsigned int m)
+{    
+    int res = 0;
+ 
+    // One by one process all digits of 'num' from left to right
+    for (int i = 0; i < num.length(); i++)
+         res = (res*10 + (unsigned int)num[i] - '0') % m;
+ 
+    return res;
+}
+
+int main()
+{
+	string num = "12345678910346916352";  // 12345678910346916352 % 7	
+    cout << mod(num, 7); // 1
+    return 0;
+}
+
+#elif 1
+
 
 #endif

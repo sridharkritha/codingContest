@@ -34,12 +34,41 @@ function solveCase(lines)
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Method 1:
+// var fs = require('fs');
+// var content = fs.readFileSync('C:\/Users\/irobot\/Documents\/GitHub\/codingContest\/help\/small.txt', 'utf8');
+// var lines = content.split('\r\n');
 
-var fs = require('fs');
-var content = fs.readFileSync('C:\/Users\/irobot\/Documents\/GitHub\/codingContest\/help\/small.txt', 'utf8');
-var lines = content.split('\r\n');
+// Method 2:
+var readline = require('readline');
+var rl = readline.createInterface({
+	// input: require('fs').createReadStream('C:\/Users\/irobot\/Documents\/GitHub\/codingContest\/help\/small.txt'),
+	input: process.stdin,
+	output: process.stdout,
+	terminal: false
+});
 
-solveCase(lines);
+var n = 0;
+var i = -1;
+var content = [];
+rl.on('line', function (line) {
+	if(n === i)
+	{
+		solveCase(content, n);
+	}
+	if(n === 0)
+	{
+		n = parseInt(line);
+	}
+	else
+	{
+		content[++i] = parseInt(line);
+	}
+	
+	
+});
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 

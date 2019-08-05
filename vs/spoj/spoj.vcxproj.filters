@@ -15,13 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\graphs\myTry.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\graphs\zero.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="candy.cpp">
+    <ClCompile Include="infixToPolish.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

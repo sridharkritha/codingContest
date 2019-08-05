@@ -1,5 +1,6 @@
 // https://www.spoj.com/problems/CANDY/
 
+/*
 function solveCase(lines)
 {
 	while(lines)
@@ -31,6 +32,8 @@ function solveCase(lines)
 	}
 }
 
+*/
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -38,11 +41,34 @@ function solveCase(lines)
 // var fs = require('fs');
 // var content = fs.readFileSync('C:\/Users\/irobot\/Documents\/GitHub\/codingContest\/help\/small.txt', 'utf8');
 // var lines = content.split('\r\n');
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function solveCase(ary, n)
+{
+
+	var nPackets = n;
+	var totalCandy = 0;
+	var i = 0;
+	var move = 0;
+	for(i = 0 ; i < nPackets; ++i)
+	{
+		totalCandy += parseInt(ary[i]);
+	}
+	var avg = Math.ceil(totalCandy / nPackets);
+	for(i = 0 ; i < nPackets; ++i)
+	{
+		if(ary[i] > avg)
+		{
+			move += ary[i] - avg;
+		}
+	}
+	console.log(move ? move : -1);
+}
 
 // Method 2:
 var readline = require('readline');
 var rl = readline.createInterface({
-	// input: require('fs').createReadStream('C:\/Users\/irobot\/Documents\/GitHub\/codingContest\/help\/small.txt'),
+	 //input: require('fs').createReadStream('C:\/Users\/irobot\/Documents\/GitHub\/codingContest\/help\/small.txt'),
 	input: process.stdin,
 	output: process.stdout,
 	terminal: false
@@ -52,10 +78,7 @@ var n = 0;
 var i = -1;
 var content = [];
 rl.on('line', function (line) {
-	if(n === i)
-	{
-		solveCase(content, n);
-	}
+
 	if(n === 0)
 	{
 		n = parseInt(line);
@@ -64,8 +87,19 @@ rl.on('line', function (line) {
 	{
 		content[++i] = parseInt(line);
 	}
-	
-	
+
+	if(n === i + 1)
+	{
+		solveCase(content.slice(), n); // slice will do shallow copy
+		content = [];
+		n = 0;
+		i = -1;
+	}
+
+	if(n === -1)
+	{
+		return;
+	}
 });
 
 

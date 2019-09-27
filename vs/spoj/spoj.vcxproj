@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{DFA2ECA1-A0A0-4D4C-9533-E0E59C5E4317}</ProjectGuid>
+    <ProjectGuid>{FEB17140-082F-4429-82B5-72C2CD8477D5}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>project</RootNamespace>
+    <RootNamespace>spoj</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -74,9 +74,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\graphs\myTry.cpp" />
-    <ClCompile Include="..\..\..\graphs\zero.cpp" />
-    <ClCompile Include="candy.cpp" />
+    <ClCompile Include="infixToPolish.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
